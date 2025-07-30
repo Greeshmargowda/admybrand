@@ -1,0 +1,17 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://admybrand.ai/sitemap.xml
+
+# Disallow admin areas if any
+Disallow: /admin/
+Disallow: /_next/
+Disallow: /api/
+
+# Allow all marketing pages
+Allow: /
+Allow: /auth
+Allow: /features
+Allow: /pricing
+Allow: /contact

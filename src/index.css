@@ -1,0 +1,166 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ADmyBRAND AI Suite Design System - Modern SaaS with Glassmorphism
+All colors MUST be HSL for proper theming.
+*/
+
+@layer base {
+  :root {
+    /* Brand Colors */
+    --background: 240 8% 5%;
+    --foreground: 240 5% 95%;
+    
+    /* Glass Effect Backgrounds */
+    --card: 240 8% 8%;
+    --card-foreground: 240 5% 95%;
+    
+    --popover: 240 8% 8%;
+    --popover-foreground: 240 5% 95%;
+    
+    /* Primary Brand - Deep Purple */
+    --primary: 260 85% 58%;
+    --primary-foreground: 240 5% 95%;
+    --primary-glow: 260 100% 70%;
+    
+    /* Secondary - Subtle Glass */
+    --secondary: 240 8% 12%;
+    --secondary-foreground: 240 5% 85%;
+    
+    /* Muted Elements */
+    --muted: 240 8% 10%;
+    --muted-foreground: 240 5% 65%;
+    
+    /* Accent - Bright Pink/Purple */
+    --accent: 300 85% 65%;
+    --accent-foreground: 240 5% 95%;
+    --accent-glow: 300 100% 75%;
+    
+    /* Status Colors */
+    --destructive: 0 85% 60%;
+    --destructive-foreground: 240 5% 95%;
+    --success: 140 85% 55%;
+    --warning: 45 85% 55%;
+    
+    /* Borders & Inputs */
+    --border: 240 8% 15%;
+    --input: 240 8% 12%;
+    --ring: 260 85% 58%;
+    
+    /* Glassmorphism */
+    --glass-primary: 260 85% 58% / 0.1;
+    --glass-secondary: 240 8% 50% / 0.1;
+    --glass-border: 240 8% 50% / 0.2;
+    
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(260 85% 58%), hsl(300 85% 65%));
+    --gradient-secondary: linear-gradient(135deg, hsl(240 8% 8%), hsl(240 8% 12%));
+    --gradient-hero: linear-gradient(135deg, hsl(260 85% 58% / 0.1), hsl(300 85% 65% / 0.1));
+    
+    /* Shadows */
+    --shadow-primary: 0 10px 30px hsl(260 85% 58% / 0.3);
+    --shadow-accent: 0 10px 30px hsl(300 85% 65% / 0.3);
+    --shadow-glass: 0 8px 32px hsl(240 8% 5% / 0.5);
+    
+    /* Animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    
+    --radius: 0.75rem;
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+  
+  /* Glass Effect Utilities */
+  .glass {
+    background: hsl(var(--glass-secondary));
+    backdrop-filter: blur(20px);
+    border: 1px solid hsl(var(--glass-border));
+  }
+  
+  .glass-primary {
+    background: hsl(var(--glass-primary));
+    backdrop-filter: blur(20px);
+    border: 1px solid hsl(var(--primary) / 0.2);
+  }
+  
+  /* Gradient Utilities */
+  .gradient-primary {
+    background: var(--gradient-primary);
+  }
+  
+  .gradient-text {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  /* Animation Utilities */
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  .animate-glow {
+    animation: glow 2s ease-in-out infinite alternate;
+  }
+}
+
+@layer components {
+  /* Scroll Animations */
+  .fade-up {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s ease-out;
+  }
+  
+  .fade-up.animate {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  .fade-in {
+    opacity: 0;
+    transition: opacity 0.6s ease-out;
+  }
+  
+  .fade-in.animate {
+    opacity: 1;
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+@keyframes glow {
+  from { box-shadow: 0 0 20px hsl(var(--primary) / 0.3); }
+  to { box-shadow: 0 0 30px hsl(var(--primary) / 0.6), 0 0 40px hsl(var(--accent) / 0.4); }
+}
